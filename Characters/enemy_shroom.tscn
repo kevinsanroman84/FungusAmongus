@@ -1,0 +1,59 @@
+[gd_scene load_steps=6 format=3 uid="uid://l8uf1ry2n6qs"]
+
+[ext_resource type="Texture2D" uid="uid://b58n60b2c4fjs" path="res://Art/sprites/characters/ Mushroom Deadly-sheet.png" id="1_4obe0"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0pars"]
+
+[sub_resource type="Animation" id="Animation_y8v1d"]
+resource_name = "idle"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
+[sub_resource type="Animation" id="Animation_dsc3m"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4ko3o"]
+_data = {
+"RESET": SubResource("Animation_dsc3m"),
+"idle": SubResource("Animation_y8v1d")
+}
+
+[node name="EnemyShroom" type="CharacterBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_4obe0")
+hframes = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource("CapsuleShape2D_0pars")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_4ko3o")
+}
+
+[node name="AnimationTree" type="AnimationTree" parent="."]

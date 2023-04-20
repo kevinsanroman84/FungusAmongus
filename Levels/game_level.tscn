@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://l4m8pbf4aqin"]
+
+[ext_resource type="PackedScene" uid="uid://dixyg0ir5qfsa" path="res://Characters/player_person.tscn" id="1_smmmu"]
+[ext_resource type="PackedScene" uid="uid://l8uf1ry2n6qs" path="res://Characters/enemy_shroom.tscn" id="2_cbvoy"]
+
+[node name="GameLevel" type="Node2D"]
+
+[node name="PlayerPerson" parent="." instance=ExtResource("1_smmmu")]
+position = Vector2(115, 111)
+
+[node name="EnemyShroom" parent="." instance=ExtResource("2_cbvoy")]
